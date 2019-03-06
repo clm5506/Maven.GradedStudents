@@ -22,11 +22,14 @@ public class ClassroomTest {
         //Given
         Double[] testScores = {100.0, 90.0, 80.0, 0.0};
         Student studentOne = new Student("Cristina", "McClintock", testScores);
+
         Double[] testScores2 = {100.0, 90.0, 80.0, 0.0};
         Student studentTwo = new Student("Marci", "Brahma",testScores2);
+
         Double[] testScores3 = {100.0, 90.0, 80.0, 0.0};
         Student studentThree = new Student("Eric", "Jefferson", testScores3);
-        Student[] testStudents = {studentOne,studentTwo, studentThree};
+
+        Student[] testStudents = {studentOne, studentTwo, studentThree};
 
         //When
         Classroom testClassRoom = new Classroom(testStudents);

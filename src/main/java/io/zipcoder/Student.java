@@ -8,6 +8,8 @@ public class Student {
     private String firstName;
     private String lastName;
     private Double[] testScores;
+    private ArrayList<Double> examScores;
+
 
     public Student(String firstName, String lastName, Double[] testScores) {
         this.firstName = firstName;
@@ -37,15 +39,22 @@ public class Student {
 
 
     public String getExamScores() {
-        return this.testScores.toString();
+
+        String result =
+                "Exam Scores:\n";
+        for(int i = 1; i <= testScores.length; i++){
+            result += "\tExam "+ i + " -> " + testScores[i-1].intValue() +"\n";
+        }
+
+        return result;
+
     }
 
     public void addExamScore(Double score) {
-        List<Double> examsArrayList = new ArrayList<>(Arrays.asList(testScores));
+        examScores = new ArrayList<>(Arrays.asList(testScores));
+        examScores.add(score);
+        this.testScores =  examScores.toArray(new Double[examScores.size()]);
 
-        examsArrayList.add(score);
-
-        this.testScores =  examsArrayList.toArray(new Double[examsArrayList.size()]);
     }
 
     public void setExamScore(int index, Double score) {
@@ -56,16 +65,27 @@ public class Student {
         this.testScores =  examsArrayList.toArray(new Double[examsArrayList.size()]);
 
     }
-    //might need to be changed to double
-    public Double getAverageExamScore() {
+
+    public int getAverageExamScore() {
         Double sum = 0.0;
+        double ans = 0.0;
         for(Double d : testScores){
             sum += d;
         }
-        return sum / testScores.length;
+
+        double average = sum/testScores.length;
+        ans = Math.round(average);
+        return (int)ans;
     }
 
     @Override
     public String toString(){
+
+        String result = "Student Name: " + getFirstName() + " " + getLastName() +
+                "\n> Average Score: " + getAverageExamScore() + "\n> " + getExamScores();
+    return result;
+
+
     }
+
 }

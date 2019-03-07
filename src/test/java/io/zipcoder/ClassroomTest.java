@@ -46,9 +46,8 @@ public class ClassroomTest {
         Classroom testClassRoom = new Classroom();
 
         //Then
-        //Assert.assertEquals(expectedLength, testClassRoom.getStudents().length);
-        Assert.assertTrue(testClassRoom.getStudents() == null);
-        //Assert.assertTrue(testClassRoom.getStudents()[0].isEmpty());
+        Assert.assertEquals(expectedLength, testClassRoom.getStudents().length);
+        Assert.assertTrue(testClassRoom.getStudents()[0] == null);
     }
 
     @Test
@@ -73,22 +72,22 @@ public class ClassroomTest {
         Double[] testScores = {100.0, 150.0, 250.0, 0.0};
         Student studentOne = new Student("Cristina", "McClintock",testScores);
         Classroom testClassRoom = new Classroom(maxNumberOfStudents);
-        String expectedEmpty = "[]";
+        String expectedEmpty = "[null]";
         String expectedOutput =
                 "[Student Name: Cristina McClintock\n" +
-                " > Average Score: 125\n" +
-                " > Exam Scores:\n" +
+                "> Average Score: 125\n" +
+                "> Exam Scores:\n" +
                 "     Exam 1 -> 100\n" +
                 "     Exam 2 -> 150\n" +
                 "     Exam 3 -> 250\n" +
-                "     Exam 4 -> 0]";
+                "     Exam 4 -> 0\n]";
         //When
-        String[] actualBefore = testClassRoom.getStudents();
+        String actualBefore = Arrays.toString(testClassRoom.getStudents());
         testClassRoom.add(studentOne);
-        String[] actualAfter = testClassRoom.getStudents();
+        String actualAfter = Arrays.toString(testClassRoom.getStudents());
 
-        Assert.assertEquals(expectedEmpty,actualBefore.toString());
-        Assert.assertEquals(expectedOutput, actualAfter.toString());
+        Assert.assertEquals(expectedEmpty, actualBefore);
+        Assert.assertEquals(expectedOutput, actualAfter);
     }
 
     @Test

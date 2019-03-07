@@ -43,10 +43,18 @@ public class Student {
         String result =
                 "Exam Scores:\n";
         for(int i = 1; i <= testScores.length; i++){
-            result += "\tExam "+ i + " -> " + testScores[i-1].intValue() +"\n";
+            result += "     Exam "+ i + " -> " + testScores[i-1].intValue() +"\n";
         }
 
         return result;
+    }
+
+    public Double getExamScoresTotal(){
+        Double answer = 0.00;
+        for(int i = 0; i < testScores.length; i++){
+            answer += testScores[i];
+        }
+        return answer;
 
     }
 
@@ -54,7 +62,6 @@ public class Student {
         examScores = new ArrayList<>(Arrays.asList(testScores));
         examScores.add(score);
         this.testScores =  examScores.toArray(new Double[examScores.size()]);
-
     }
 
     public void setExamScore(int index, Double score) {
@@ -84,8 +91,6 @@ public class Student {
         String result = "Student Name: " + getFirstName() + " " + getLastName() +
                 "\n> Average Score: " + getAverageExamScore() + "\n> " + getExamScores();
     return result;
-
-
     }
 
 }

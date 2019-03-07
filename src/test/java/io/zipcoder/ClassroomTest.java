@@ -101,18 +101,13 @@ public class ClassroomTest {
         Classroom testClassRoom = new Classroom(testStudentArray);
         String firstName = "Cristina";
         String lastName = "McClintock";
-        String expectedOutput =
-                "[Student Name: Marci Brahma\n" +
-                        " > Average Score: 125\n" +
-                        " > Exam Scores:\n" +
-                        "     Exam 1 -> 225" +
-                        "     Exam 2 -> 25" + "," +
-                        "[]";
+       Student[] expectedOutput = {studentTwo, null};
+
         //When
         testClassRoom.removeStudent(firstName, lastName);
 
         //Then
-        Assert.assertEquals(expectedOutput, Arrays.toString(testClassRoom.getStudents()));
+        Assert.assertEquals(Arrays.toString(expectedOutput), Arrays.toString(testClassRoom.getStudents()));
     }
 
     @Test
@@ -129,9 +124,7 @@ public class ClassroomTest {
 
         Student[] studentArray = {studentOne, studentTwo, studentThree};
 
-        String[] expected = {"Cristina McClintock - Avg Score: 300",
-                "Cristina McClintock - Avg Score: 200", "Ted Smith - Avg Score: 200"};
-
+        Student[] expected = {studentThree, studentTwo, studentOne};
         //When
         Classroom testClassRoom = new Classroom(studentArray);
 

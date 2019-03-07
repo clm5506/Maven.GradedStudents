@@ -27,16 +27,6 @@ public class Classroom {
     }
 
     public Student[] getStudents() {
-//        String[] ans = new String[students.length];
-//
-//        for(int i = 0; i < students.length; i ++) {
-//
-//            if (students[i] == null) {
-//                ans[i] = "";
-//            }else {
-//                ans[i] = students[i].toString();
-//            }
-//        }
         return this.students;
     }
 
@@ -77,9 +67,11 @@ public class Classroom {
         for(int i = 0; i < studArrList.size(); i++){
             if(studArrList.get(i).getFirstName().equals(firstName) &&
                     studArrList.get(i).getLastName().equals(lastName)){
-                studArrList.get(i);
+                studArrList.remove(i);
                 studArrList.add(null);
+                break;
             }
+
         }
         this.students = studArrList.toArray(new Student[studArrList.size()]);
     }
@@ -91,7 +83,14 @@ public class Classroom {
     }
 
     public String getGradeBook() {
-        return null;
+        StudentComparator sc = new StudentComparator();
+        Arrays.sort(students,sc);
+
+        for(int i = 0; i < students.length; i++){
+            Double percentile = (double)(students.length - i) / students.length;
+
+        }
+        return "";
     }
 
 

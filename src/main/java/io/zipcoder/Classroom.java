@@ -1,7 +1,6 @@
 package io.zipcoder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class Classroom {
 
@@ -78,20 +77,44 @@ public class Classroom {
 
     public Student[] getStudentsByScore() {
         StudentComparator sc = new StudentComparator();
+
         Arrays.sort(students,sc);
         return students;
     }
 
     public String getGradeBook() {
+
+        Map<String, String> gb = new TreeMap<>();
+
+
         StudentComparator sc = new StudentComparator();
         Arrays.sort(students,sc);
 
         for(int i = 0; i < students.length; i++){
-            Double percentile = (double)(students.length - i) / students.length;
+            Double percentile = (double)(students.length - i)/students.length;
+            String fullName = students[i].getFirstName() + " " + students[i].getLastName();
+            gb.put(fullName, getGrade(percentile));
+       }
 
-        }
-        return "";
+        return gb.toString().replace("{","").replace("}","");
+
     }
 
+    public String getGrade(Double percentile){
+        String grade = "";
+        if(percentile >= .9){
+            grade = "A";
+        } else if(percentile > .7 && percentile <.9 ){
+            grade = "B";
+        } else if(percentile > .5 && percentile <= .7){
+            grade = "C";
+        } else if( percentile >=.11 && percentile <=.49){
+            grade = "D";
+        } else{
+            grade = "F";
+        }
+
+        return grade;
+    }
 
 }

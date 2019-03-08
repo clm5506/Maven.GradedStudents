@@ -13,7 +13,7 @@ public class StudentTest {
         String lastName = "McClintock";
         Double[] testScores = {100.00};
         String expectedScores = "Exam Scores:\n" +
-                "\tExam 1 -> 100\n";
+                "     Exam 1 -> 100\n";
         //When
         Student testStudent = new Student(firstName,lastName,testScores);
 
@@ -100,10 +100,10 @@ public class StudentTest {
         Double[] testScores = {100.0, 95.0, 123.0, 96.0};
         String expectedScores =
                 "Exam Scores:\n" +
-                "\tExam 1 -> 100\n" +
-                "\tExam 2 -> 95\n" +
-                "\tExam 3 -> 123\n" +
-                "\tExam 4 -> 96\n";
+                "     Exam 1 -> 100\n" +
+                "     Exam 2 -> 95\n" +
+                "     Exam 3 -> 123\n" +
+                "     Exam 4 -> 96\n";
 
         Student testStudent = new Student(firstName1,lastName1,testScores);
 
@@ -120,7 +120,7 @@ public class StudentTest {
         Double score = 100.0;
         String expected =
                 "Exam Scores:\n" +
-                "\tExam 1 -> 100\n";
+                "     Exam 1 -> 100\n";
         Student testStudent = new Student(firstName1,lastName1,testScores);
 
         //When
@@ -138,7 +138,7 @@ public class StudentTest {
         Double[] testScores = {100.0};
         Double score = 105.0;
         String expected = "Exam Scores:\n" +
-                "\tExam 1 -> 105\n";
+                "     Exam 1 -> 105\n";
         //When
         Student testStudent = new Student(firstName1,lastName1,testScores);
         testStudent.setExamScore(1, score);
@@ -169,10 +169,10 @@ public class StudentTest {
         Student testStudent = new Student(firstName1,lastName1,testScores);
         String expected =
                         "Student Name: Cristina McClintock\n" + "> Average Score: 104\n"
-                        + "> Exam Scores:\n" +   "\tExam 1 -> 100\n" +
-                                "\tExam 2 -> 95\n" +
-                                "\tExam 3 -> 123\n" +
-                                "\tExam 4 -> 96\n";
+                        + "> Exam Scores:\n" +   "     Exam 1 -> 100\n" +
+                                "     Exam 2 -> 95\n" +
+                                "     Exam 3 -> 123\n" +
+                                "     Exam 4 -> 96\n";
         //Then
 
         Assert.assertEquals(expected, testStudent.toString());

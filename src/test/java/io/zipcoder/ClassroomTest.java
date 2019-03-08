@@ -168,10 +168,12 @@ public class ClassroomTest {
 
         Classroom cr = new Classroom(arrayOfStudents);
 
-        String expected = "Eric Decker - A\n" +
-                          "Jessie James = B\n";
+       String expected = "Ann Thomas=C, Brittney Spears=B, Cristina McClintock=F, " +
+                         "Eric Decker=A, Eric Jefferson=D, Jane Smith=F, Jessie James=A, John Doe=D, " +
+                         "Marci Brahma=D, Tom Hanks=C";
+       Assert.assertEquals(expected, cr.getGradeBook());
 
-        System.out.println(cr.getGradeBook());
+
     }
 
 }
